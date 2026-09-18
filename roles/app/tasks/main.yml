@@ -1,0 +1,31 @@
+---
+- name: Create web root directory
+  ansible.builtin.file:
+    path: /var/www/html
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: "0755"
+
+- name: Upload website archive
+  ansible.builtin.copy:
+    src: website.tar.gz
+    dest: /tmp/website.tar.gz
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Extract website
+  ansible.builtin.unarchive:
+    src: /tmp/website.tar.gz
+    dest: /var/www/html
+    remote_src: true
+    extra_opts:
+      - --strip-components=1
+
+- name: Set website ownership
+  ansible.builtin.file:
+    path: /var/www/html
+    owner: www-data
+    group: www-data
+    recurse: true

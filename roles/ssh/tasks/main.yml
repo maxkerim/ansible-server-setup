@@ -1,0 +1,6 @@
+---
+- name: Add SSH public key
+  ansible.posix.authorized_key:
+    user: root
+    state: present
+    key: "{{ lookup('ansible.builtin.file', role_path + '/files/id_ed25519.pub') }}"
