@@ -1,6 +1,8 @@
+[![Ansible lint](https://github.com/maxkerim/ansible-server-setup/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/maxkerim/ansible-server-setup/actions/workflows/ansible-lint.yml)
+
 # Ansible server setup
 
-An Ansible playbook for preparing a Debian/Ubuntu web server.
+An Ansible playbook for provisioning Debian and Ubuntu web servers with Nginx.
 
 ## Roles
 
